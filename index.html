@@ -1,223 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>offx.sahil — Portfolio</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>offx.sahil — Ultimate Interactive Portfolio</title>
+<style>
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-    body {
-      margin:0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg,#001f3f,#004d40);
-      color:#f0f0f0;
-      overflow-x:hidden;
-    }
-    .hero {
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-      z-index:2;
-    }
-    /* Neon OS Logo */
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size:4rem;
-      font-weight:700;
-      background:linear-gradient(90deg,#00e6e6,#00ff88,#00e6e6);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 0 15px rgba(0,255,200,0.7);
-      animation: glow 3s ease-in-out infinite, shine 6s linear infinite;
-      position:relative;
-      overflow:hidden;
-    }
-    @keyframes glow {
-      0%,100% {text-shadow:0 0 15px #00fff2,0 0 30px #00ff88;}
-      50% {text-shadow:0 0 25px #00ff88,0 0 40px #00fff2;}
-    }
-    @keyframes shine {
-      0% {background-position:-200px;}
-      100% {background-position:200px;}
-    }
-    .tagline {
-      font-size:1.2rem;
-      margin:1rem 0;
-      color:#aaffcc;
-    }
-    /* Typing effect */
-    .typing {
-      font-size:1.2rem;
-      border-right:2px solid #00ffcc;
-      white-space:nowrap;
-      overflow:hidden;
-      width:0;
-      animation: typing 6s steps(40,end) infinite alternate;
-    }
-    @keyframes typing {
-      from {width:0}
-      to {width:100%}
-    }
-    .cards {
-      display:grid;
-      gap:1rem;
-      max-width:400px;
-      margin-top:2rem;
-      width:100%;
-    }
-    .card {
-      background:rgba(0,0,50,0.4);
-      border:1px solid rgba(0,255,200,0.4);
-      padding:1rem;
-      border-radius:15px;
-      font-size:1.2rem;
-      font-weight:bold;
-      text-decoration:none;
-      color:#00e6e6;
-      box-shadow:0 0 15px rgba(0,255,200,0.5);
-      transition:transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform:scale(1.05) rotate(-1deg);
-      box-shadow:0 0 30px rgba(0,255,200,0.8);
-    }
-    .section {
-      min-height:100vh;
-      padding:3rem 1.5rem;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      opacity:0;
-      transform:translateY(30px);
-      transition:all 1s ease;
-    }
-    .section.visible {
-      opacity:1;
-      transform:translateY(0);
-    }
-    footer {
-      padding:1rem;
-      background:rgba(0,0,0,0.7);
-      text-align:center;
-      font-size:0.9rem;
-      color:#aaffaa;
-    }
-    /* Particles */
-    .particle {
-      position:fixed;
-      top:-10px;
-      color:#00ffff;
-      font-size:0.6rem;
-      animation:fall 10s linear infinite;
-      opacity:0.6;
-      z-index:1;
-    }
-    @keyframes fall {
-      0% {transform:translateY(0);}
-      100% {transform:translateY(110vh);}
-    }
-    /* Background wave */
-    .wave {
-      position:fixed;
-      top:0;left:0;right:0;bottom:0;
-      background:radial-gradient(circle at 50% 50%,rgba(0,255,200,0.05),transparent 70%);
-      animation:wave 8s linear infinite;
-      z-index:0;
-    }
-    @keyframes wave {
-      from {transform:rotate(0deg);}
-      to {transform:rotate(360deg);}
-    }
-  </style>
+/* ===== Basic Reset ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Poppins",sans-serif;background:linear-gradient(135deg,#001f3f,#004d40);color:#f0f0f0;overflow-x:hidden;scroll-behavior:smooth;}
+h1,h2,h3{font-family:'Orbitron',sans-serif;color:#00ffe0;text-align:center;margin-bottom:1rem;}
+a{text-decoration:none;color:#00e6e6;transition:0.3s;}
+section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1rem;opacity:0;transform:translateY(30px);transition:all 1s ease;}
+section.visible{opacity:1;transform:translateY(0);}
+footer{padding:1rem;background:rgba(0,0,0,0.7);text-align:center;font-size:0.9rem;color:#aaffaa;}
+
+/* ===== Hero Section ===== */
+.hero{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.logo{font-size:6rem;font-weight:700;background:linear-gradient(90deg,#00e6e6,#ff44ff,#00ff88,#00e6e6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 20px rgba(0,255,200,0.7);animation:glow 3s ease-in-out infinite,shine 6s linear infinite;position:relative;overflow:hidden;}
+@keyframes glow{0%,100%{text-shadow:0 0 15px #00fff2,0 0 30px #00ff88;}50%{text-shadow:0 0 30px #ff44ff,0 0 50px #00fff2;}}
+@keyframes shine{0%{background-position:-200px;}100%{background-position:200px;}}
+.tagline{font-size:1.5rem;margin:1rem 0;color:#ff99ff;}
+.typing{font-size:1.3rem;border-right:2px solid #00ffcc;white-space:nowrap;overflow:hidden;width:0;animation:typing 6s steps(40,end) infinite alternate;}
+@keyframes typing{from{width:0}to{width:100%;}}
+
+/* ===== Cards ===== */
+.cards{display:grid;gap:1rem;max-width:450px;margin-top:2rem;width:100%;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
+.card{background:rgba(0,0,50,0.5);border:1px solid rgba(0,255,200,0.4);padding:1rem;border-radius:15px;font-size:1.2rem;font-weight:bold;text-decoration:none;color:#00e6e6;box-shadow:0 0 15px rgba(0,255,200,0.5);transition:transform 0.2s,box-shadow 0.2s;position:relative;}
+.card:hover{transform:scale(1.1) rotate(-2deg);box-shadow:0 0 40px rgba(255,0,255,0.9);}
+
+/* ===== Particles & Floating Kitties ===== */
+.particle{position:fixed;top:-10px;color:#00ffff;font-size:0.8rem;animation:fall 10s linear infinite;opacity:0.6;z-index:1;}
+.kitty{position:absolute;font-size:2rem;animation:kittyDance 2s infinite alternate;}
+@keyframes fall{0%{transform:translateY(0);}100%{transform:translateY(110vh);}}
+@keyframes kittyDance{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(15deg);}100%{transform:translateY(0) rotate(-15deg);}}
+
+/* ===== Wave Background ===== */
+.wave{position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.05),transparent 70%);animation:wave 8s linear infinite;z-index:0;}
+@keyframes wave{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+/* ===== Sections ===== */
+.projects,.skills,.testimonials{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem;}
+.project-card,.skill-card,.testimonial-card{background:rgba(0,0,50,0.4);padding:1rem 1.5rem;border-radius:15px;box-shadow:0 0 15px rgba(0,255,200,0.5);transition:transform 0.3s,box-shadow 0.3s;}
+.project-card:hover,.skill-card:hover,.testimonial-card:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(255,0,255,0.8);}
+.skill-bar{background:rgba(0,255,200,0.2);border-radius:10px;height:15px;margin-top:0.5rem;overflow:hidden;}
+.skill-bar-inner{height:100%;background:#ff44ff;width:0;border-radius:10px;transition:width 2s;}
+
+/* ===== Fireworks ===== */
+.firework{position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;pointer-events:none;z-index:999;}
+
+/* ===== Music Button ===== */
+.music-btn{position:fixed;bottom:20px;right:20px;background:#ff44ff;color:#001f3f;padding:0.5rem 1rem;border:none;border-radius:50px;font-weight:bold;cursor:pointer;z-index:999;box-shadow:0 0 20px rgba(0,255,200,0.7);transition:0.3s;}
+.music-btn:hover{transform:scale(1.1);box-shadow:0 0 35px rgba(0,255,200,0.9);}
+</style>
 </head>
 <body>
-  <div class="wave"></div>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="logo">OS</div>
-    <h1>offx.sahil</h1>
-    <p class="tagline">🚀 Digital Creator & Developer</p>
-    <p class="typing">Web Developer | Python | Java | Full Stack Enthusiast</p>
+<div class="wave"></div>
 
-    <div class="cards">
-      <a href="https://instagram.com/offx.sahil" target="_blank" class="card">📸 Instagram</a>
-      <a href="https://t.me/offx_sahil" target="_blank" class="card">✈️ Telegram</a>
-      <a href="tel:+911234567890" class="card">📞 Call Me</a>
-    </div>
-  </section>
+<!-- Hero Section -->
+<section class="hero">
+<div class="logo">OS</div>
+<h1>offx.sahil</h1>
+<p class="tagline">🚀 Digital Creator & Developer</p>
+<p class="typing">Web Developer | Python | Java | Full Stack Enthusiast</p>
+<div class="cards">
+<a href="https://instagram.com/offx.sahil" target="_blank" class="card">📸 Instagram</a>
+<a href="https://t.me/offx_sahil" target="_blank" class="card">✈️ Telegram</a>
+<a href="tel:+911234567890" class="card">📞 Call Me</a>
+</div>
+</section>
 
-  <!-- About -->
-  <section class="section">
-    <h2>About Me</h2>
-    <p>
-      I’m <strong>Sahil (offx.sahil)</strong>, a passionate <strong>Web Developer</strong>.  
-      Skilled in <strong>Python, Java, JavaScript, HTML, CSS</strong>, and always exploring new technologies.  
-      My focus is on building fast, stylish, and professional websites that leave a lasting impact.  
-    </p>
-  </section>
+<!-- About Section -->
+<section class="section about">
+<h2>About Me</h2>
+<p>
+I’m <strong>Sahil (offx.sahil)</strong>, a passionate <strong>Web Developer</strong>.
+Skilled in <strong>Python, Java, JavaScript, HTML, CSS</strong>, and always exploring new technologies.
+My focus is on building fast, stylish, and professional websites that leave a lasting impact.
+</p>
+</section>
 
-  <!-- Promotion -->
-  <section class="section">
-    <h2>Need a Website Like This?</h2>
-    <p>
-      If you want a **professional custom website / portfolio** with animations, neon vibes,  
-      and unique branding — Contact me 👇  
-    </p>
-    <p><strong>Instagram:</strong> @offx.sahil</p>
-    <p><strong>Telegram:</strong> @offx_sahil</p>
-    <p><strong>Phone:</strong> +91 1234567890</p>
-  </section>
+<!-- Skills Section -->
+<section class="section skills">
+<h2>My Skills</h2>
+<div class="skill-card">
+<p>HTML & CSS</p>
+<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
+</div>
+<div class="skill-card">
+<p>JavaScript</p>
+<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
+</div>
+<div class="skill-card">
+<p>Python</p>
+<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
+</div>
+<div class="skill-card">
+<p>Full Stack</p>
+<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
+</div>
+</section>
 
-  <footer>
-    ⚡ Made with passion & code by <strong>offx.sahil</strong> ⚡
-  </footer>
+<!-- Projects Section -->
+<section class="section projects">
+<h2>Projects</h2>
+<div class="project-card">Portfolio Website</div>
+<div class="project-card">Interactive Game</div>
+<div class="project-card">Mini App</div>
+<div class="project-card">API Project</div>
+</section>
 
-  <!-- Sounds -->
-  <audio id="clickSound" preload="auto">
-    <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
-  </audio>
+<!-- Testimonials Section -->
+<section class="section testimonials">
+<h2>Testimonials</h2>
+<div class="testimonial-card">"Amazing Developer!" - Client A</div>
+<div class="testimonial-card">"Creative & Fast!" - Client B</div>
+<div class="testimonial-card">"Highly Recommended!" - Client C</div>
+</section>
 
-  <!-- Floating particles -->
-  <script>
-    // particles
-    function spawnParticle(){
-      const el=document.createElement("div");
-      el.className="particle";
-      el.style.left=Math.random()*100+"vw";
-      el.style.animationDuration=5+Math.random()*5+"s";
-      el.innerText="✦";
-      document.body.appendChild(el);
-      setTimeout(()=>el.remove(),10000);
-    }
-    setInterval(spawnParticle,300);
+<!-- Call to Action -->
+<section class="section">
+<h2>Need a Website Like This?</h2>
+<p>Contact me to build your custom portfolio with neon vibes and animations!</p>
+<p><strong>Instagram:</strong> @offx.sahil</p>
+<p><strong>Telegram:</strong> @offx_sahil</p>
+<p><strong>Phone:</strong> +91 1234567890</p>
+</section>
 
-    // click sound
-    const sound=document.getElementById("clickSound");
-    document.querySelectorAll(".card").forEach(card=>{
-      card.addEventListener("click",()=>{
-        sound.currentTime=0;
-        sound.play();
-      });
-    });
+<!-- Footer -->
+<footer>⚡ Made with passion & code by <strong>offx.sahil</strong> ⚡</footer>
 
-    // scroll animation
-    const sections=document.querySelectorAll(".section");
-    window.addEventListener("scroll",()=>{
-      sections.forEach(sec=>{
-        const rect=sec.getBoundingClientRect();
-        if(rect.top<window.innerHeight-100){
-          sec.classList.add("visible");
-        }
-      });
-    });
-  </script>
+<!-- Audio -->
+<audio id="bgMusic" loop>
+<source src="https://actions.google.com/sounds/v1/ambiences/space.ogg" type="audio/ogg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<!-- Floating Particles & Kitties -->
+<script>
+// Particles
+function spawnParticle(){
+  const el=document.createElement("div");
+  el.className="particle";
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=5+Math.random()*5+"s";
+  el.innerText=["✨","🚀","🎉","💻","😺","🐱"][Math.floor(Math.random()*6)];
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+}
+setInterval(spawnParticle,300);
+
+// Scroll animation for sections
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("visible");
+}
+});
+});
+
+// Click sound
+const sound=new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("click",()=>{
+sound.currentTime=0; sound.play();
+});
+});
+
+// Music toggle
+const bgMusic=document.getElementById("bgMusic");
+function toggleMusic(){ if(bgMusic.paused){bgMusic.play();}else{bgMusic.pause();}}
+
+// Animate skills bars
+window.addEventListener("scroll",()=>{
+const skills=document.querySelectorAll(".skill-bar-inner");
+skills.forEach(s=>{
+s.style.width=s.parentElement.previousElementSibling.innerText.includes("HTML")?"90%":
+s.parentElement.previousElementSibling.innerText.includes("JavaScript")?"85%":
+s.parentElement.previousElementSibling.innerText.includes("Python")?"80%":"75%";
+});
+});
+
+// Fireworks
+function createFirework(x,y){
+for(let i=0;i<30;i++){
+const f=document.createElement("div");
+f.className="firework";
+f.style.left=x+"px"; f.style.top=y+"px";
+f.style.background=`hsl(${Math.random()*360},100%,50%)`;
+document.body.appendChild(f);
+animateFirework(f);
+}
+}
+function animateFirework(el){
+let angle=Math.random()*2*Math.PI;
+let speed= Math.random()*6+2;
+let x=0,y=0;
+let anim=setInterval(()=>{
+x+=Math.cos(angle)*speed;
+y+=Math.sin(angle)*speed+0.5;
+el.style.transform=`translate(${x}px,${y}px)`;
+el.style.opacity-=0.02;
+if(el.style.opacity<=0){el.remove(); clearInterval(anim);}
+},30);
+}
+document.addEventListener("click",(e)=>{createFirework(e.clientX,e.clientY);});
+
+</script>
 </body>
 </html>
