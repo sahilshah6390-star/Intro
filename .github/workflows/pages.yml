@@ -22,8 +22,7 @@ jobs:
           npm install || echo "No JS dependencies found"
 
       - name: Build (optional)
-        run: |
-          echo "No build step, using static files"
+        run: echo "No build step, using static files"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -34,4 +33,4 @@ jobs:
           keep_files: true
 
       - name: Deployment Complete
-        run: echo "✅ Portfolio deployed! Visit: https://<username>.github.io/<repo>/"
+        run: echo "✅ Portfolio deployed! Visit: https://sahilshah6390-star.github.io/Intro/"
