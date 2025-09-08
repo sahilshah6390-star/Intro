@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+body {
+  margin:0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg,#001f3f,#004d40);
+  color:#f0f0f0;
+  overflow-x:hidden;
+}
+.hero {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size:4rem;
+  font-weight:700;
+  background:linear-gradient(90deg,#00e6e6,#00ff88,#00e6e6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 15px rgba(0,255,200,0.7);
+  animation: glow 3s ease-in-out infinite, shine 6s linear infinite;
+}
+@keyframes glow {
+  0%,100% {text-shadow:0 0 15px #00fff2,0 0 30px #00ff88;}
+  50% {text-shadow:0 0 25px #00ff88,0 0 40px #00fff2;}
+}
+@keyframes shine {
+  0% {background-position:-200px;}
+  100% {background-position:200px;}
+}
+.card {
+  background:rgba(0,0,50,0.4);
+  border:1px solid rgba(0,255,200,0.4);
+  padding:1rem;
+  border-radius:15px;
+  font-size:1.2rem;
+  font-weight:bold;
+  text-decoration:none;
+  color:#00e6e6;
+  box-shadow:0 0 15px rgba(0,255,200,0.5);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform:scale(1.05) rotate(-1deg);
+  box-shadow:0 0 30px rgba(0,255,200,0.8);
+}
+.particle {
+  position:fixed;
+  top:-10px;
+  color:#00ffff;
+  font-size:0.6rem;
+  animation:fall 10s linear infinite;
+  opacity:0.6;
+  z-index:1;
+}
+@keyframes fall {
+  0% {transform:translateY(0);}
+  100% {transform:translateY(110vh);}
+}

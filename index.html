@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>offx.sahil — Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    body {
+      margin:0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg,#001f3f,#004d40);
+      color:#f0f0f0;
+      overflow-x:hidden;
+    }
+    .hero {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+    /* Neon OS Logo */
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size:4rem;
+      font-weight:700;
+      background:linear-gradient(90deg,#00e6e6,#00ff88,#00e6e6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 15px rgba(0,255,200,0.7);
+      animation: glow 3s ease-in-out infinite, shine 6s linear infinite;
+      position:relative;
+      overflow:hidden;
+    }
+    @keyframes glow {
+      0%,100% {text-shadow:0 0 15px #00fff2,0 0 30px #00ff88;}
+      50% {text-shadow:0 0 25px #00ff88,0 0 40px #00fff2;}
+    }
+    @keyframes shine {
+      0% {background-position:-200px;}
+      100% {background-position:200px;}
+    }
+    .tagline {
+      font-size:1.2rem;
+      margin:1rem 0;
+      color:#aaffcc;
+    }
+    /* Typing effect */
+    .typing {
+      font-size:1.2rem;
+      border-right:2px solid #00ffcc;
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation: typing 6s steps(40,end) infinite alternate;
+    }
+    @keyframes typing {
+      from {width:0}
+      to {width:100%}
+    }
+    .cards {
+      display:grid;
+      gap:1rem;
+      max-width:400px;
+      margin-top:2rem;
+      width:100%;
+    }
+    .card {
+      background:rgba(0,0,50,0.4);
+      border:1px solid rgba(0,255,200,0.4);
+      padding:1rem;
+      border-radius:15px;
+      font-size:1.2rem;
+      font-weight:bold;
+      text-decoration:none;
+      color:#00e6e6;
+      box-shadow:0 0 15px rgba(0,255,200,0.5);
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform:scale(1.05) rotate(-1deg);
+      box-shadow:0 0 30px rgba(0,255,200,0.8);
+    }
+    .section {
+      min-height:100vh;
+      padding:3rem 1.5rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      opacity:0;
+      transform:translateY(30px);
+      transition:all 1s ease;
+    }
+    .section.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+    footer {
+      padding:1rem;
+      background:rgba(0,0,0,0.7);
+      text-align:center;
+      font-size:0.9rem;
+      color:#aaffaa;
+    }
+    /* Particles */
+    .particle {
+      position:fixed;
+      top:-10px;
+      color:#00ffff;
+      font-size:0.6rem;
+      animation:fall 10s linear infinite;
+      opacity:0.6;
+      z-index:1;
+    }
+    @keyframes fall {
+      0% {transform:translateY(0);}
+      100% {transform:translateY(110vh);}
+    }
+    /* Background wave */
+    .wave {
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:radial-gradient(circle at 50% 50%,rgba(0,255,200,0.05),transparent 70%);
+      animation:wave 8s linear infinite;
+      z-index:0;
+    }
+    @keyframes wave {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="wave"></div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="logo">OS</div>
+    <h1>offx.sahil</h1>
+    <p class="tagline">🚀 Digital Creator & Developer</p>
+    <p class="typing">Web Developer | Python | Java | Full Stack Enthusiast</p>
+
+    <div class="cards">
+      <a href="https://instagram.com/offx.sahil" target="_blank" class="card">📸 Instagram</a>
+      <a href="https://t.me/offx_sahil" target="_blank" class="card">✈️ Telegram</a>
+      <a href="tel:+911234567890" class="card">📞 Call Me</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section">
+    <h2>About Me</h2>
+    <p>
+      I’m <strong>Sahil (offx.sahil)</strong>, a passionate <strong>Web Developer</strong>.  
+      Skilled in <strong>Python, Java, JavaScript, HTML, CSS</strong>, and always exploring new technologies.  
+      My focus is on building fast, stylish, and professional websites that leave a lasting impact.  
+    </p>
+  </section>
+
+  <!-- Promotion -->
+  <section class="section">
+    <h2>Need a Website Like This?</h2>
+    <p>
+      If you want a **professional custom website / portfolio** with animations, neon vibes,  
+      and unique branding — Contact me 👇  
+    </p>
+    <p><strong>Instagram:</strong> @offx.sahil</p>
+    <p><strong>Telegram:</strong> @offx_sahil</p>
+    <p><strong>Phone:</strong> +91 1234567890</p>
+  </section>
+
+  <footer>
+    ⚡ Made with passion & code by <strong>offx.sahil</strong> ⚡
+  </footer>
+
+  <!-- Sounds -->
+  <audio id="clickSound" preload="auto">
+    <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- Floating particles -->
+  <script>
+    // particles
+    function spawnParticle(){
+      const el=document.createElement("div");
+      el.className="particle";
+      el.style.left=Math.random()*100+"vw";
+      el.style.animationDuration=5+Math.random()*5+"s";
+      el.innerText="✦";
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),10000);
+    }
+    setInterval(spawnParticle,300);
+
+    // click sound
+    const sound=document.getElementById("clickSound");
+    document.querySelectorAll(".card").forEach(card=>{
+      card.addEventListener("click",()=>{
+        sound.currentTime=0;
+        sound.play();
+      });
+    });
+
+    // scroll animation
+    const sections=document.querySelectorAll(".section");
+    window.addEventListener("scroll",()=>{
+      sections.forEach(sec=>{
+        const rect=sec.getBoundingClientRect();
+        if(rect.top<window.innerHeight-100){
+          sec.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
