@@ -1,4 +1,4 @@
-name: GitHub Pages Deployment
+jname: GitHub Pages Deployment
 
 on:
   push:
@@ -33,6 +33,6 @@ jobs:
           keep_files: true
 
       - name: Deployment Complete
-  run: echo "✅ Portfolio deployed! 
-Visit:
-https://sahilshah6390-star.github.io/Intro/"
+  run: |
+    echo "✅ Portfolio deployed!"
+    echo "Visit: https://sahilshah6390-star.github.io/Intro/"
