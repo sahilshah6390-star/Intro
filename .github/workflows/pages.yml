@@ -1,5 +1,6 @@
-jname: GitHub Pages Deployment
+name: GitHub Pages Deployment
 
+# Trigger deployment on push to main branch
 on:
   push:
     branches:
@@ -7,23 +8,31 @@ on:
 
 jobs:
   deploy:
+    name: Deploy Portfolio
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      # Step 1: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
+      # Step 2: Setup Node.js (optional, for future JS build tools)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # Step 3: Install dependencies (if any JS tools used)
       - name: Install Dependencies
         run: |
           npm install || echo "No JS dependencies found"
 
+      # Step 4: Build project (if using build tools)
       - name: Build (optional)
-        run: echo "No build step, using static files"
+        run: |
+          echo "No build step, using static files"
 
+      # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -32,7 +41,8 @@ jobs:
           publish_dir: ./
           keep_files: true
 
+      # Step 6: Success message
       - name: Deployment Complete
-  run: |
-    echo "✅ Portfolio deployed!"
-    echo "Visit: https://sahilshah6390-star.github.io/Intro/"
+        run: |
+          echo "✅ Portfolio deployed!"
+          echo "Visit: https://sahilshah6390-star.github.io/Intro/"
