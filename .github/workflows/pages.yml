@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -35,4 +34,4 @@ jobs:
           keep_files: true
 
       - name: Deployment Complete
-        run: echo "✅ Portfolio deployed! Visit: https://<username>.github.io/<repo>/"        run: echo "✅ Portfolio deployed! Visit: https://<username>.github.io/<repo>/"
+        run: echo "✅ Portfolio deployed! Visit: https://<username>.github.io/<repo>/"
