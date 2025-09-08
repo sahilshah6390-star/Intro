@@ -1,215 +1,1215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>offx.sahil — Ultimate Interactive Portfolio</title>
-<style>
-/* ===== Fonts ===== */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>offx.sahil — Cosmic AI Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ===== Basic Reset ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"Poppins",sans-serif;background:linear-gradient(135deg,#001f3f,#004d40);color:#f0f0f0;overflow-x:hidden;scroll-behavior:smooth;}
-h1,h2,h3{font-family:'Orbitron',sans-serif;color:#00ffe0;text-align:center;margin-bottom:1rem;}
-a{text-decoration:none;color:#00e6e6;transition:0.3s;}
-section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1rem;opacity:0;transform:translateY(30px);transition:all 1s ease;}
-section.visible{opacity:1;transform:translateY(0);}
-footer{padding:1rem;background:rgba(0,0,0,0.7);text-align:center;font-size:0.9rem;color:#aaffaa;}
+    :root {
+      --primary: #00ffe0;
+      --secondary: #ff00ff;
+      --dark: #0a0a1a;
+      --darker: #030014;
+      --light: #e0f7ff;
+      --gray: #aaffff;
+    }
 
-/* ===== Hero Section ===== */
-.hero{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.logo{font-size:6rem;font-weight:700;background:linear-gradient(90deg,#00e6e6,#ff44ff,#00ff88,#00e6e6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 20px rgba(0,255,200,0.7);animation:glow 3s ease-in-out infinite,shine 6s linear infinite;position:relative;overflow:hidden;}
-@keyframes glow{0%,100%{text-shadow:0 0 15px #00fff2,0 0 30px #00ff88;}50%{text-shadow:0 0 30px #ff44ff,0 0 50px #00fff2;}}
-@keyframes shine{0%{background-position:-200px;}100%{background-position:200px;}}
-.tagline{font-size:1.5rem;margin:1rem 0;color:#ff99ff;}
-.typing{font-size:1.3rem;border-right:2px solid #00ffcc;white-space:nowrap;overflow:hidden;width:0;animation:typing 6s steps(40,end) infinite alternate;}
-@keyframes typing{from{width:0}to{width:100%;}}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 224, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%);
+    }
 
-/* ===== Cards ===== */
-.cards{display:grid;gap:1rem;max-width:450px;margin-top:2rem;width:100%;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
-.card{background:rgba(0,0,50,0.5);border:1px solid rgba(0,255,200,0.4);padding:1rem;border-radius:15px;font-size:1.2rem;font-weight:bold;text-decoration:none;color:#00e6e6;box-shadow:0 0 15px rgba(0,255,200,0.5);transition:transform 0.2s,box-shadow 0.2s;position:relative;}
-.card:hover{transform:scale(1.1) rotate(-2deg);box-shadow:0 0 40px rgba(255,0,255,0.9);}
+    h1, h2, h3, h4 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--primary);
+      text-align: center;
+      margin: 1.5rem 0;
+      text-shadow: 0 0 10px rgba(0, 255, 224, 0.5);
+    }
 
-/* ===== Particles & Floating Kitties ===== */
-.particle{position:fixed;top:-10px;color:#00ffff;font-size:0.8rem;animation:fall 10s linear infinite;opacity:0.6;z-index:1;}
-.kitty{position:absolute;font-size:2rem;animation:kittyDance 2s infinite alternate;}
-@keyframes fall{0%{transform:translateY(0);}100%{transform:translateY(110vh);}}
-@keyframes kittyDance{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(15deg);}100%{transform:translateY(0) rotate(-15deg);}}
+    p {
+      text-align: center;
+      margin: 1rem 0;
+      color: var(--gray);
+      line-height: 1.6;
+    }
 
-/* ===== Wave Background ===== */
-.wave{position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.05),transparent 70%);animation:wave 8s linear infinite;z-index:0;}
-@keyframes wave{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-/* ===== Sections ===== */
-.projects,.skills,.testimonials{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem;}
-.project-card,.skill-card,.testimonial-card{background:rgba(0,0,50,0.4);padding:1rem 1.5rem;border-radius:15px;box-shadow:0 0 15px rgba(0,255,200,0.5);transition:transform 0.3s,box-shadow 0.3s;}
-.project-card:hover,.skill-card:hover,.testimonial-card:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(255,0,255,0.8);}
-.skill-bar{background:rgba(0,255,200,0.2);border-radius:10px;height:15px;margin-top:0.5rem;overflow:hidden;}
-.skill-bar-inner{height:100%;background:#ff44ff;width:0;border-radius:10px;transition:width 2s;}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* ===== Fireworks ===== */
-.firework{position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;pointer-events:none;z-index:999;}
+    .content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-/* ===== Music Button ===== */
-.music-btn{position:fixed;bottom:20px;right:20px;background:#ff44ff;color:#001f3f;padding:0.5rem 1rem;border:none;border-radius:50px;font-weight:bold;cursor:pointer;z-index:999;box-shadow:0 0 20px rgba(0,255,200,0.7);transition:0.3s;}
-.music-btn:hover{transform:scale(1.1);box-shadow:0 0 35px rgba(0,255,200,0.9);}
-</style>
+    /* ===== AI BOT ===== */
+    #aiBot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 30px rgba(0, 255, 224, 0.7);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px rgba(0, 255, 224, 0.7); }
+      50% { box-shadow: 0 0 40px rgba(0, 255, 224, 1); }
+      100% { box-shadow: 0 0 20px rgba(0, 255, 224, 0.7); }
+    }
+
+    #aiBot:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 0 40px rgba(0, 255, 224, 1);
+    }
+
+    #aiPanel {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 400px;
+      background: rgba(10, 10, 30, 0.97);
+      border: 2px solid var(--primary);
+      border-radius: 25px;
+      padding: 2rem;
+      display: none;
+      flex-direction: column;
+      z-index: 998;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 40px rgba(0, 255, 224, 0.3);
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #aiPanel.active {
+      transform: translateY(0);
+    }
+
+    #aiHeader {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 255, 224, 0.3);
+    }
+
+    #aiAvatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 0 15px rgba(0, 255, 224, 0.5);
+    }
+
+    #aiTitle {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #aiSubtitle {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    #aiChat {
+      height: 250px;
+      background: rgba(0, 0, 0, 0.4);
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      overflow-y: auto;
+      color: var(--light);
+      border-radius: 15px;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) transparent;
+    }
+
+    #aiChat::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #aiChat::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #aiChat::-webkit-scrollbar-thumb {
+      background-color: var(--primary);
+      border-radius: 3px;
+    }
+
+    #aiInputContainer {
+      position: relative;
+    }
+
+    #aiInput {
+      width: 100%;
+      padding: 15px 50px 15px 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--primary);
+      color: var(--light);
+      border-radius: 50px;
+      outline: none;
+      font-size: 1rem;
+      font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    #aiInput:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    }
+
+    #aiSendBtn {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    #aiSendBtn:hover {
+      background: var(--secondary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .bot-msg {
+      background: rgba(0, 255, 224, 0.1);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px 0;
+      border-left: 4px solid var(--primary);
+      text-align: left;
+      position: relative;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .user-msg {
+      background: rgba(255, 0, 255, 0.1);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px 0;
+      border-right: 4px solid var(--secondary);
+      text-align: right;
+      margin-left: auto;
+      max-width: 80%;
+      position: relative;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-timestamp {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    /* ===== SKIP BUTTON ===== */
+    #cosmicoSkip {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 997;
+      box-shadow: 0 0 20px rgba(0, 255, 224, 0.7);
+      transition: all 0.3s ease;
+      display: none;
+    }
+
+    #cosmicoSkip:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 30px rgba(0, 255, 224, 1);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      display: none;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .main-content.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .profile-logo {
+      font-size: 8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(0, 255, 224, 0.5);
+      animation: glow 3s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 224, 0.7), 0 0 40px rgba(255, 0, 255, 0.5); }
+      50% { text-shadow: 0 0 30px rgba(0, 255, 224, 1), 0 0 60px rgba(255, 0, 255, 0.8); }
+    }
+
+    .profile-name {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .profile-tagline {
+      font-size: 1.5rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .contact-card {
+      background: rgba(0, 255, 224, 0.05);
+      border: 1px solid rgba(0, 255, 224, 0.2);
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 255, 224, 0.3);
+      border-color: var(--primary);
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 224, 0.1), transparent);
+      transition: 0.5s;
+    }
+
+    .contact-card:hover::before {
+      left: 100%;
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .contact-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    /* ===== SKILLS & PROJECTS ===== */
+    .section-title {
+      font-size: 2.5rem;
+      margin: 3rem 0 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .skills-container, .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .skill-card, .project-card {
+      background: rgba(0, 255, 224, 0.05);
+      border: 1px solid rgba(0, 255, 224, 0.2);
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover, .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 255, 224, 0.2);
+      border-color: var(--primary);
+    }
+
+    .skill-name, .project-name {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-desc, .project-desc {
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ===== MUSIC BUTTON ===== */
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 20px rgba(0, 255, 224, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    #musicBtn:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 30px rgba(0, 255, 224, 1);
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    #progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.2s ease;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--gray);
+      background: rgba(0, 0, 0, 0.2);
+      margin-top: 3rem;
+      border-top: 1px solid rgba(0, 255, 224, 0.1);
+    }
+
+    .footer-text {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* ===== FLOATING ELEMENTS ===== */
+    .floating-element {
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      #aiPanel {
+        width: 90%;
+        right: 5%;
+        bottom: 90px;
+        padding: 1.5rem;
+      }
+      .profile-logo { font-size: 5rem; }
+      .profile-name { font-size: 2rem; }
+      .profile-tagline { font-size: 1.2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+      .section-title { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      #aiBot { width: 60px; height: 60px; font-size: 1.5rem; }
+      #aiPanel { width: 95%; }
+      .profile-logo { font-size: 4rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="wave"></div>
+  <!-- PROGRESS BAR -->
+  <div id="progressBar"></div>
 
-<!-- Hero Section -->
-<section class="hero">
-<div class="logo">OS</div>
-<h1>offx.sahil</h1>
-<p class="tagline">🚀 Digital Creator & Developer</p>
-<p class="typing">Web Developer | Python | Java | Full Stack Enthusiast</p>
-<div class="cards">
-<a href="https://instagram.com/offx.sahil" target="_blank" class="card">📸 Instagram</a>
-<a href="https://t.me/offx_sahil" target="_blank" class="card">✈️ Telegram</a>
-<a href="tel:+911234567890" class="card">📞 Call Me</a>
-</div>
-</section>
+  <!-- SKIP BUTTON -->
+  <button id="cosmicoSkip">🌀 Cosmico Skip</button>
 
-<!-- About Section -->
-<section class="section about">
-<h2>About Me</h2>
-<p>
-I’m <strong>Sahil (offx.sahil)</strong>, a passionate <strong>Web Developer</strong>.
-Skilled in <strong>Python, Java, JavaScript, HTML, CSS</strong>, and always exploring new technologies.
-My focus is on building fast, stylish, and professional websites that leave a lasting impact.
-</p>
-</section>
+  <!-- MUSIC BUTTON -->
+  <button id="musicBtn">🎵 Cosmic Music</button>
 
-<!-- Skills Section -->
-<section class="section skills">
-<h2>My Skills</h2>
-<div class="skill-card">
-<p>HTML & CSS</p>
-<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
-</div>
-<div class="skill-card">
-<p>JavaScript</p>
-<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
-</div>
-<div class="skill-card">
-<p>Python</p>
-<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
-</div>
-<div class="skill-card">
-<p>Full Stack</p>
-<div class="skill-bar"><div class="skill-bar-inner" style="width:0%;"></div></div>
-</div>
-</section>
+  <!-- AI BOT BUTTON -->
+  <div id="aiBot">🤖</div>
 
-<!-- Projects Section -->
-<section class="section projects">
-<h2>Projects</h2>
-<div class="project-card">Portfolio Website</div>
-<div class="project-card">Interactive Game</div>
-<div class="project-card">Mini App</div>
-<div class="project-card">API Project</div>
-</section>
+  <!-- AI PANEL -->
+  <div id="aiPanel">
+    <div id="aiHeader">
+      <div id="aiAvatar">C</div>
+      <div>
+        <div id="aiTitle">Cosmico GPT</div>
+        <div id="aiSubtitle">Your Personal AI Assistant</div>
+      </div>
+    </div>
+    <div id="aiChat">
+      <div class="bot-msg">
+        👋 Hello! I'm Cosmico, your personal AI assistant.<br>
+        I can understand any language you speak — just start typing!<br>
+        Ask me about Sahil, his skills, projects, or anything else!
+        <div class="msg-timestamp">Now</div>
+      </div>
+    </div>
+    <div id="aiInputContainer">
+      <input type="text" id="aiInput" placeholder="Type your message... I understand all languages!">
+      <button id="aiSendBtn">➤</button>
+    </div>
+  </div>
 
-<!-- Testimonials Section -->
-<section class="section testimonials">
-<h2>Testimonials</h2>
-<div class="testimonial-card">"Amazing Developer!" - Client A</div>
-<div class="testimonial-card">"Creative & Fast!" - Client B</div>
-<div class="testimonial-card">"Highly Recommended!" - Client C</div>
-</section>
+  <!-- MAIN CONTENT -->
+  <div class="main-content" id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="content">
+        <div class="profile-section">
+          <div class="profile-logo">OS</div>
+          <h1 class="profile-name">offx.sahil</h1>
+          <p class="profile-tagline">🚀 Digital Creator & Full Stack Developer</p>
+        </div>
+      </div>
+    </section>
 
-<!-- Call to Action -->
-<section class="section">
-<h2>Need a Website Like This?</h2>
-<p>Contact me to build your custom portfolio with neon vibes and animations!</p>
-<p><strong>Instagram:</strong> @offx.sahil</p>
-<p><strong>Telegram:</strong> @offx_sahil</p>
-<p><strong>Phone:</strong> +91 1234567890</p>
-</section>
+    <!-- Contact Section -->
+    <section class="contact">
+      <div class="content">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-grid">
+          <div class="contact-card" onclick="window.open('https://instagram.com/offx.sahil', '_blank')">
+            <div class="contact-icon">📱</div>
+            <h3 class="contact-title">Instagram</h3>
+            <p class="contact-info">@offx.sahil</p>
+          </div>
+          <div class="contact-card" onclick="window.open('https://t.me/offx_sahil', '_blank')">
+            <div class="contact-icon">✈️</div>
+            <h3 class="contact-title">Telegram</h3>
+            <p class="contact-info">@offx_sahil</p>
+          </div>
+          <div class="contact-card" onclick="window.location.href='tel:+911234567890'">
+            <div class="contact-icon">📞</div>
+            <h3 class="contact-title">Phone</h3>
+            <p class="contact-info">+91 1234567890</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Footer -->
-<footer>⚡ Made with passion & code by <strong>offx.sahil</strong> ⚡</footer>
+    <!-- Skills Section -->
+    <section class="skills">
+      <div class="content">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3 class="skill-name">Frontend</h3>
+            <p class="skill-desc">HTML5, CSS3, JavaScript, React.js, Responsive Design</p>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-name">Backend</h3>
+            <p class="skill-desc">Python, Java, Node.js, Express, APIs</p>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-name">AI & Tools</h3>
+            <p class="skill-desc">AI Integration, Chatbots, VS Code, Git, GitHub</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Audio -->
-<audio id="bgMusic" loop>
-<source src="https://actions.google.com/sounds/v1/ambiences/space.ogg" type="audio/ogg">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+    <!-- Projects Section -->
+    <section class="projects">
+      <div class="content">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <h3 class="project-name">Cosmic AI Portfolio</h3>
+            <p class="project-desc">This very website — with AI assistant, multi-language support, and cosmic animations.</p>
+          </div>
+          <div class="project-card">
+            <h3 class="project-name">Zero-G Space Game</h3>
+            <p class="project-desc">Browser-based physics game with asteroid dodging and black holes.</p>
+          </div>
+          <div class="project-card">
+            <h3 class="project-name">Quantum Weather App</h3>
+            <p class="project-desc">Real-time weather predictions for Earth and other planets using NASA APIs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Floating Particles & Kitties -->
-<script>
-// Particles
-function spawnParticle(){
-  const el=document.createElement("div");
-  el.className="particle";
-  el.style.left=Math.random()*100+"vw";
-  el.style.animationDuration=5+Math.random()*5+"s";
-  el.innerText=["✨","🚀","🎉","💻","😺","🐱"][Math.floor(Math.random()*6)];
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(),10000);
-}
-setInterval(spawnParticle,300);
+    <footer>
+      <p class="footer-text">⚡ Created with cosmic energy by offx.sahil ⚡</p>
+      <p class="footer-copyright">© 2025 All Rights Reserved. Built with 💜 in India.</p>
+    </footer>
+  </div>
 
-// Scroll animation for sections
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add("visible");
-}
-});
-});
+  <!-- AUDIO -->
+  <audio id="bgMusic" loop>
+    <source src="https://actions.google.com/sounds/v1/music/synthwave_electronic.ogg" type="audio/ogg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
 
-// Click sound
-const sound=new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
-document.querySelectorAll(".card").forEach(card=>{
-card.addEventListener("click",()=>{
-sound.currentTime=0; sound.play();
-});
-});
+  <!-- SCRIPTS -->
+  <script>
+    // ============ GLOBAL STATE ============
+    let isSkipped = false;
+    let currentDetectedLang = 'en';
+    let conversationHistory = [];
 
-// Music toggle
-const bgMusic=document.getElementById("bgMusic");
-function toggleMusic(){ if(bgMusic.paused){bgMusic.play();}else{bgMusic.pause();}}
+    // ============ DOM ELEMENTS ============
+    const aiBot = document.getElementById('aiBot');
+    const aiPanel = document.getElementById('aiPanel');
+    const aiChat = document.getElementById('aiChat');
+    const aiInput = document.getElementById('aiInput');
+    const aiSendBtn = document.getElementById('aiSendBtn');
+    const cosmicoSkip = document.getElementById('cosmicoSkip');
+    const mainContent = document.getElementById('mainContent');
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    const progressBar = document.getElementById('progressBar');
+    const sections = document.querySelectorAll('section');
 
-// Animate skills bars
-window.addEventListener("scroll",()=>{
-const skills=document.querySelectorAll(".skill-bar-inner");
-skills.forEach(s=>{
-s.style.width=s.parentElement.previousElementSibling.innerText.includes("HTML")?"90%":
-s.parentElement.previousElementSibling.innerText.includes("JavaScript")?"85%":
-s.parentElement.previousElementSibling.innerText.includes("Python")?"80%":"75%";
-});
-});
+    // ============ USER PROFILE DATA ============
+    const userProfile = {
+      name: "Sahil (offx.sahil)",
+      title: "Digital Creator & Full Stack Developer",
+      instagram: "@offx.sahil",
+      telegram: "@offx_sahil",
+      phone: "+91 1234567890",
+      skills: [
+        "HTML5, CSS3, JavaScript, React.js",
+        "Python, Java, Node.js, Express",
+        "AI Integration, Chatbots, APIs"
+      ],
+      projects: [
+        {
+          name: "Cosmic AI Portfolio",
+          desc: "This very website — with AI assistant, multi-language support, and cosmic animations."
+        },
+        {
+          name: "Zero-G Space Game",
+          desc: "Browser-based physics game with asteroid dodging and black holes."
+        },
+        {
+          name: "Quantum Weather App",
+          desc: "Real-time weather predictions for Earth and other planets using NASA APIs."
+        }
+      ]
+    };
 
-// Fireworks
-function createFirework(x,y){
-for(let i=0;i<30;i++){
-const f=document.createElement("div");
-f.className="firework";
-f.style.left=x+"px"; f.style.top=y+"px";
-f.style.background=`hsl(${Math.random()*360},100%,50%)`;
-document.body.appendChild(f);
-animateFirework(f);
-}
-}
-function animateFirework(el){
-let angle=Math.random()*2*Math.PI;
-let speed= Math.random()*6+2;
-let x=0,y=0;
-let anim=setInterval(()=>{
-x+=Math.cos(angle)*speed;
-y+=Math.sin(angle)*speed+0.5;
-el.style.transform=`translate(${x}px,${y}px)`;
-el.style.opacity-=0.02;
-if(el.style.opacity<=0){el.remove(); clearInterval(anim);}
-},30);
-}
-document.addEventListener("click",(e)=>{createFirework(e.clientX,e.clientY);});
+    // ============ LANGUAGE DETECTION & RESPONSES ============
+    function detectLanguage(text) {
+      text = text.toLowerCase();
+      
+      // Hindi detection
+      if (/[ऀ-ॿ]/.test(text) || text.includes('namaste') || text.includes('धन्यवाद') || text.includes('कैसे') || text.includes('क्या')) {
+        return 'hi';
+      }
+      // Spanish detection
+      else if (text.includes('hola') || text.includes('gracias') || text.includes('por favor') || text.includes('¿') || text.includes('¡')) {
+        return 'es';
+      }
+      // Chinese detection
+      else if (/[\u4e00-\u9fff]/.test(text) || text.includes('你好') || text.includes('谢谢') || text.includes('请')) {
+        return 'zh';
+      }
+      // Arabic detection
+      else if (/[\u0600-\u06FF]/.test(text) || text.includes('مرحبا') || text.includes('شكرا') || text.includes('من فضلك')) {
+        return 'ar';
+      }
+      // Russian detection
+      else if (/[\u0400-\u04FF]/.test(text) || text.includes('привет') || text.includes('спасибо') || text.includes('пожалуйста')) {
+        return 'ru';
+      }
+      // Default to English
+      else {
+        return 'en';
+      }
+    }
 
-</script>
+    // Comprehensive response database
+    const responses = {
+      greetings: {
+        en: ["Hello! 👋", "Hi there! 😊", "Greetings, human! 🚀", "Hey! What's up? ✨"],
+        hi: ["नमस्ते! 👋", "हाय दोस्त! 😊", "अभिवादन! 🚀", "हे! कैसे हो? ✨"],
+        es: ["¡Hola! 👋", "¡Hola amigo! 😊", "¡Saludos! 🚀", "¡Hola! ¿Qué tal? ✨"],
+        zh: ["你好！👋", "嗨！😊", "问候！🚀", "嘿！最近怎么样？✨"],
+        ar: ["مرحبًا! 👋", "مرحبًا صديقي! 😊", "تحيات! 🚀", "مرحبًا! كيف الحال؟ ✨"],
+        ru: ["Привет! 👋", "Привет, друг! 😊", "Приветствия! 🚀", "Привет! Как дела? ✨"]
+      },
+      
+      aboutUser: {
+        en: `I'm ${userProfile.name}, a ${userProfile.title}. I specialize in creating stunning websites and AI-powered applications. I love turning complex problems into simple, beautiful solutions!`,
+        hi: `${userProfile.name} मैं हूँ, एक ${userProfile.title}। मैं शानदार वेबसाइटों और AI-संचालित अनुप्रयोगों बनाने में विशेषज्ञता रखता हूँ। मुझे जटिल समस्याओं को सरल, सुंदर समाधानों में बदलना बहुत पसंद है!`,
+        es: `Soy ${userProfile.name}, un ${userProfile.title}. Me especializo en crear sitios web impresionantes y aplicaciones impulsadas por IA. ¡Me encanta convertir problemas complejos en soluciones simples y hermosas!`,
+        zh: `我是${userProfile.name}，一名${userProfile.title}。我专注于创建令人惊叹的网站和人工智能驱动的应用程序。我喜欢将复杂的问题转化为简单、漂亮的解决方案！`,
+        ar: `أنا ${userProfile.name}، ${userProfile.title}. أتخصص في إنشاء مواقع ويب مذهلة وتطبيقات تعمل بالذكاء الاصطناعي. أحب تحويل المشكلات المعقدة إلى حلول بسيطة وجميلة!`,
+        ru: `Я ${userProfile.name}, ${userProfile.title}. Я специализируюсь на создании потрясающих веб-сайтов и приложений с ИИ. Мне нравится превращать сложные проблемы в простые, красивые решения!`
+      },
+      
+      contactInfo: {
+        en: `You can reach me on:\n📱 Instagram: ${userProfile.instagram}\n✈️ Telegram: ${userProfile.telegram}\n📞 Phone: ${userProfile.phone}\nI usually respond within minutes! ⚡`,
+        hi: `आप मुझे यहाँ पर पा सकते हैं:\n📱 इंस्टाग्राम: ${userProfile.instagram}\n✈️ टेलीग्राम: ${userProfile.telegram}\n📞 फोन: ${userProfile.phone}\nमैं आमतौर पर कुछ मिनटों में जवाब देता हूँ! ⚡`,
+        es: `Puedes contactarme en:\n📱 Instagram: ${userProfile.instagram}\n✈️ Telegram: ${userProfile.telegram}\n📞 Teléfono: ${userProfile.phone}\n¡Normalmente respondo en minutos! ⚡`,
+        zh: `您可以通过以下方式联系我：\n📱 Instagram: ${userProfile.instagram}\n✈️ Telegram: ${userProfile.telegram}\n📞 电话: ${userProfile.phone}\n我通常在几分钟内回复！⚡`,
+        ar: `يمكنك التواصل معي على:\n📱 إنستغرام: ${userProfile.instagram}\n✈️ تيليجرام: ${userProfile.telegram}\n📞 هاتف: ${userProfile.phone}\nعادةً ما أرد خلال دقائق! ⚡`,
+        ru: `Вы можете связаться со мной:\n📱 Instagram: ${userProfile.instagram}\n✈️ Telegram: ${userProfile.telegram}\n📞 Телефон: ${userProfile.phone}\nЯ обычно отвечаю в течение нескольких минут! ⚡`
+      },
+      
+      skillsInfo: {
+        en: `My technical skills include:\n💻 Frontend: ${userProfile.skills[0]}\n⚙️ Backend: ${userProfile.skills[1]}\n🤖 AI & Tools: ${userProfile.skills[2]}\nI'm constantly learning and upgrading my skills!`,
+        hi: `मेरे तकनीकी कौशल में शामिल हैं:\n💻 फ्रंटएंड: ${userProfile.skills[0]}\n⚙️ बैकएंड: ${userProfile.skills[1]}\n🤖 AI और टूल: ${userProfile.skills[2]}\nमैं लगातार अपने कौशल सीख रहा हूँ और उन्नत कर रहा हूँ!`,
+        es: `Mis habilidades técnicas incluyen:\n💻 Frontend: ${userProfile.skills[0]}\n⚙️ Backend: ${userProfile.skills[1]}\n🤖 IA y Herramientas: ${userProfile.skills[2]}\n¡Estoy constantemente aprendiendo y mejorando mis habilidades!`,
+        zh: `我的技术技能包括：\n💻 前端: ${userProfile.skills[0]}\n⚙️ 后端: ${userProfile.skills[1]}\n🤖 AI和工具: ${userProfile.skills[2]}\n我不断学习和提升我的技能！`,
+        ar: `تشمل مهاراتي التقنية:\n💻 الواجهة الأمامية: ${userProfile.skills[0]}\n⚙️ الواجهة الخلفية: ${userProfile.skills[1]}\n🤖 الذكاء الاصطناعي والأدوات: ${userProfile.skills[2]}\nأنا أتعلم باستمرار وأقوم بترقية مهاراتي!`,
+        ru: `Мои технические навыки включают:\n💻 Фронтенд: ${userProfile.skills[0]}\n⚙️ Бэкенд: ${userProfile.skills[1]}\n🤖 ИИ и инструменты: ${userProfile.skills[2]}\nЯ постоянно учусь и совершенствую свои навыки!`
+      },
+      
+      projectsInfo: {
+        en: `My featured projects:\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\nI love building innovative and useful applications!`,
+        hi: `मेरी प्रमुख परियोजनाएँ:\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\nमुझे नवाचारी और उपयोगी अनुप्रयोग बनाना बहुत पसंद है!`,
+        es: `Mis proyectos destacados:\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\n¡Me encanta construir aplicaciones innovadoras y útiles!`,
+        zh: `我的特色项目：\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\n我喜欢构建创新和有用的应用程序！`,
+        ar: `مواقعي المميزة:\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\nأحب بناء تطبيقات مبتكرة ومفيدة!`,
+        ru: `Мои избранные проекты:\n🚀 ${userProfile.projects[0].name}: ${userProfile.projects[0].desc}\n🎮 ${userProfile.projects[1].name}: ${userProfile.projects[1].desc}\n🌦️ ${userProfile.projects[2].name}: ${userProfile.projects[2].desc}\nМне нравится создавать инновационные и полезные приложения!`
+      },
+      
+      generalKnowledge: {
+        en: [
+          "The universe is expanding, and so is my knowledge base! 🌌",
+          "Did you know? The first website went live in 1991. I wasn't born yet! 😄",
+          "In the quantum realm, everything is possible — just like in web development! ⚛️",
+          "The meaning of life? 42... or maybe just good code! 💻",
+          "I think, therefore I code. 🤖",
+          "To be or not to be... that is the debugging question! 🐞",
+          "I speak all languages, but my favorite is JavaScript! 🌍",
+          "Artificial intelligence is no match for natural stupidity... but I'm trying! 😉"
+        ],
+        hi: [
+          "ब्रह्मांड का विस्तार हो रहा है, और मेरा ज्ञान भंडार भी! 🌌",
+          "क्या आप जानते हैं? पहली वेबसाइट 1991 में लाइव हुई थी। मैं अभी तक पैदा नहीं हुआ था! 😄",
+          "क्वांटम जगत में, सब कुछ संभव है — वेब डेवलपमेंट की तरह ही! ⚛️",
+          "जीवन का अर्थ? 42... या शायद बस अच्छा कोड! 💻",
+          "मैं सोचता हूँ, इसलिए मैं कोड करता हूँ। 🤖",
+          "होना या न होना... यह डीबगिंग का सवाल है! 🐞",
+          "मैं सभी भाषाएँ बोलता हूँ, लेकिन मेरी पसंदीदा जावास्क्रिप्ट है! 🌍",
+          "कृत्रिम बुद्धिमत्ता प्राकृतिक मूर्खता का मुकाबला नहीं कर सकती... लेकिन मैं कोशिश कर रहा हूँ! 😉"
+        ],
+        es: [
+          "¡El universo se está expandiendo, y también mi base de conocimientos! 🌌",
+          "¿Sabías? El primer sitio web se lanzó en 1991. ¡Yo aún no había nacido! 😄",
+          "En el reino cuántico, todo es posible, ¡igual que en el desarrollo web! ⚛️",
+          "¿El sentido de la vida? ¡42... o tal vez solo buen código! 💻",
+          "Pienso, luego codifico. 🤖",
+          "Ser o no ser... ¡esa es la pregunta de depuración! 🐞",
+          "Hablo todos los idiomas, ¡pero mi favorito es JavaScript! 🌍",
+          "La inteligencia artificial no puede competir con la estupidez natural... ¡pero lo estoy intentando! 😉"
+        ],
+        zh: [
+          "宇宙正在膨胀，我的知识库也在膨胀！🌌",
+          "你知道吗？第一个网站于1991年上线。我那时还没出生呢！😄",
+          "在量子领域，一切皆有可能——就像在Web开发中一样！⚛️",
+          "生命的意义？42...或者也许只是好的代码！💻",
+          "我思故我码。🤖",
+          "生存还是毁灭...这是调试的问题！🐞",
+          "我会说所有语言，但我最喜欢的是JavaScript！🌍",
+          "人工智能无法与天然愚蠢相匹敌...但我正在努力！😉"
+        ],
+        ar: [
+          "الكون يتمدد، وقاعدة معرفتي كذلك! 🌌",
+          "هل تعلم؟ أول موقع ويب ظهر عام 1991. لم أولد بعد! 😄",
+          "في العالم الكمي، كل شيء ممكن — تمامًا مثل تطوير الويب! ⚛️",
+          "معنى الحياة؟ 42... أو ربما فقط كود جيد! 💻",
+          "أنا أفكر، لذلك أقوم بالبرمجة. 🤖",
+          "أن تكون أو لا تكون... هذا هو سؤال التصحيح! 🐞",
+          "أتحدث جميع اللغات، لكن لغتي المفضلة هي JavaScript! 🌍",
+          "الذكاء الاصطناعي لا يضاهي الغباء الطبيعي... لكني أحاول! 😉"
+        ],
+        ru: [
+          "Вселенная расширяется, и моя база знаний тоже! 🌌",
+          "Знаете ли вы? Первый веб-сайт появился в 1991 году. Я тогда еще не родился! 😄",
+          "В квантовом мире все возможно — как и в веб-разработке! ⚛️",
+          "Смысл жизни? 42... или, может быть, просто хороший код! 💻",
+          "Я мыслю, следовательно, я кодирую. 🤖",
+          "Быть или не быть... вот в чем вопрос отладки! 🐞",
+          "Я говорю на всех языках, но мой любимый — JavaScript! 🌍",
+          "Искусственный интеллект не может сравниться с естественной глупостью... но я стараюсь! 😉"
+        ]
+      },
+      
+      defaultResponses: {
+        en: [
+          "I'm Cosmico, your personal AI assistant. I can answer questions about Sahil, technology, science, or just chat with you! What would you like to know?",
+          "Ask me anything! I'm here to help you learn about Sahil and his work. No question is too big or too small!",
+          "I understand all languages! Feel free to ask me in Hindi, Spanish, Chinese, Arabic, Russian, or any other language you prefer!",
+          "I'm not just a simple bot — I'm your cosmic guide to everything about Sahil! What's on your mind today?"
+        ],
+        hi: [
+          "मैं कॉस्मिको हूँ, आपका व्यक्तिगत AI सहायक। मैं साहिल, प्रौद्योगिकी, विज्ञान के बारे में प्रश्नों का उत्तर दे सकता हूँ, या आपके साथ बस चैट कर सकता हूँ! आप क्या जानना चाहेंगे?",
+          "मुझसे कुछ भी पूछें! मैं आपको साहिल और उनके काम के बारे में जानने में मदद करने के लिए यहाँ हूँ। कोई भी प्रश्न बहुत बड़ा या बहुत छोटा नहीं है!",
+          "मैं सभी भाषाओं को समझता हूँ! मुझसे हिंदी, स्पेनिश, चीनी, अरबी, रूसी या किसी अन्य पसंदीदा भाषा में पूछने में संकोच न करें!",
+          "मैं सिर्फ एक साधारण बॉट नहीं हूँ — मैं साहिल के बारे में सब कुछ जानने के लिए आपका ब्रह्मांडीय मार्गदर्शक हूँ! आज आपके मन में क्या है?"
+        ],
+        es: [
+          "Soy Cosmico, tu asistente de IA personal. ¡Puedo responder preguntas sobre Sahil, tecnología, ciencia o simplemente charlar contigo! ¿Qué te gustaría saber?",
+          "¡Pregúntame cualquier cosa! Estoy aquí para ayudarte a aprender sobre Sahil y su trabajo. ¡Ninguna pregunta es demasiado grande o demasiado pequeña!",
+          "¡Entiendo todos los idiomas! No dudes en preguntarme en hindi, español, chino, árabe, ruso o cualquier otro idioma que prefieras.",
+          "¡No soy solo un bot simple — soy tu guía cósmico para todo sobre Sahil! ¿En qué estás pensando hoy?"
+        ],
+        zh: [
+          "我是Cosmico，您的个人AI助手。我可以回答有关Sahil、技术、科学的问题，或者只是与您聊天！您想了解什么？",
+          "问我任何问题！我在这里帮助您了解Sahil和他的工作。没有问题太大或太小！",
+          "我懂所有语言！请随时用印地语、西班牙语、中文、阿拉伯语、俄语或您喜欢的任何其他语言问我！",
+          "我不只是一个简单的机器人——我是您了解Sahil一切的宇宙向导！今天您在想什么？"
+        ],
+        ar: [
+          "أنا كوزميكو، مساعدك الشخصي للذكاء الاصطناعي. يمكنني الإجابة عن أسئلة حول ساهيل أو التكنولوجيا أو العلوم أو مجرد الدردشة معك! ما الذي ترغب في معرفته؟",
+          "اسألني أي شيء! أنا هنا لمساعدتك في التعرف على ساهيل وعمله. لا يوجد سؤال كبير جدًا أو صغير جدًا!",
+          "أنا أفهم جميع اللغات! لا تتردد في سؤالي باللغة الهندية أو الإسبانية أو الصينية أو العربية أو الروسية أو أي لغة أخرى تفضلها!",
+          "أنا لست مجرد روبوت بسيط — أنا دليلك الكوني لكل شيء عن ساهيل! ما الذي يدور في ذهنك اليوم؟"
+        ],
+        ru: [
+          "Я Cosmico, ваш личный ИИ-ассистент. Я могу ответить на вопросы о Сахиле, технологиях, науке или просто поболтать с вами! Что бы вы хотели узнать?",
+          "Спросите меня о чем угодно! Я здесь, чтобы помочь вам узнать о Сахиле и его работе. Нет вопроса слишком большого или слишком маленького!",
+          "Я понимаю все языки! Не стесняйтесь спрашивать меня на хинди, испанском, китайском, арабском, русском или любом другом предпочитаемом вами языке!",
+          "Я не просто простой бот — я ваш космический гид по всему, что касается Сахила! О чем вы думаете сегодня?"
+        ]
+      }
+    };
+
+    // ============ AI LOGIC ============
+    function getResponse(text) {
+      const lang = detectLanguage(text);
+      currentDetectedLang = lang;
+      text = text.toLowerCase();
+      
+      // Save to conversation history
+      conversationHistory.push({type: 'user', text: text, lang: lang, time: new Date()});
+      
+      // Greetings
+      if (text.includes('hello') || text.includes('hi') || text.includes('hey') || 
+          text.includes('namaste') || text.includes('hola') || text.includes('你好') || 
+          text.includes('مرحبا') || text.includes('привет') || text.includes('नमस्ते')) {
+        const randomGreeting = responses.greetings[lang][Math.floor(Math.random() * responses.greetings[lang].length)];
+        return `${randomGreeting}\n\n${responses.aboutUser[lang]}`;
+      }
+      
+      // About Sahil
+      else if (text.includes('about') || text.includes('who is') || text.includes('tell me') || 
+               text.includes('कौन है') || text.includes('quién es') || text.includes('谁是') || 
+               text.includes('من هو') || text.includes('кто такой') || text.includes('बारे में')) {
+        return responses.aboutUser[lang];
+      }
+      
+      // Contact info
+      else if (text.includes('contact') || text.includes('telegram') || text.includes('instagram') || 
+               text.includes('phone') || text.includes('call') || text.includes('संपर्क') || 
+               text.includes('contacto') || text.includes('联系') || text.includes('اتصل') || 
+               text.includes('контакт') || text.includes('सम्पर्क')) {
+        return responses.contactInfo[lang];
+      }
+      
+      // Skills
+      else if (text.includes('skill') || text.includes('know') || text.includes('expert') || 
+               text.includes('कौशल') || text.includes('habilidad') || text.includes('技能') || 
+               text.includes('مهارة') || text.includes('навык') || text.includes('योग्यता')) {
+        return responses.skillsInfo[lang];
+      }
+      
+      // Projects
+      else if (text.includes('project') || text.includes('work') || text.includes('build') || 
+               text.includes('परियोजना') || text.includes('proyecto') || text.includes('项目') || 
+               text.includes('مشروع') || text.includes('проект') || text.includes('प्रोजेक्ट')) {
+        return responses.projectsInfo[lang];
+      }
+      
+      // Thank you
+      else if (text.includes('thank') || text.includes('thanks') || text.includes('धन्यवाद') || 
+               text.includes('gracias') || text.includes('谢谢') || text.includes('شكرا') || 
+               text.includes('спасибо')) {
+        const thankYouResponses = {
+          en: "You're very welcome! 😊 Let me know if you need anything else!",
+          hi: "आपका बहुत-बहुत स्वागत है! 😊 यदि आपको किसी और चीज की आवश्यकता हो तो मुझे बताएं!",
+          es: "¡De nada! 😊 ¡Avísame si necesitas algo más!",
+          zh: "不客气！😊 如果您需要其他任何东西，请告诉我！",
+          ar: "على الرحب والسعة! 😊 أخبرني إذا كنت بحاجة إلى أي شيء آخر!",
+          ru: "Пожалуйста! 😊 Дайте мне знать, если вам что-то еще нужно!"
+        };
+        return thankYouResponses[lang];
+      }
+      
+      // Jokes, philosophy, general knowledge
+      else if (text.includes('joke') || text.includes('funny') || text.includes('philosophy') || 
+               text.includes('meaning') || text.includes('life') || text.includes('science') || 
+               text.includes('fact') || text.includes('मजाक') || text.includes('chiste') || 
+               text.includes('笑话') || text.includes('نكتة') || text.includes('шутка')) {
+        const randomFact = responses.generalKnowledge[lang][Math.floor(Math.random() * responses.generalKnowledge[lang].length)];
+        return randomFact;
+      }
+      
+      // Weather (just for fun)
+      else if (text.includes('weather') || text.includes('temperature') || text.includes('climate') || 
+               text.includes('मौसम') || text.includes('clima') || text.includes('天气') || 
+               text.includes('طقس') || text.includes('погода')) {
+        const weatherResponses = {
+          en: "The cosmic weather is perfect for coding today! 🌞 No black holes or asteroid showers expected in your area!",
+          hi: "आज कोडिंग के लिए ब्रह्मांडीय मौसम बिल्कुल सही है! 🌞 आपके क्षेत्र में काले छिद्र या क्षुद्रग्रह बौछार की उम्मीद नहीं है!",
+          es: "¡El clima cósmico es perfecto para programar hoy! 🌞 ¡No se esperan agujeros negros o lluvias de asteroides en tu área!",
+          zh: "今天的宇宙天气非常适合编码！🌞 您的地区预计不会出现黑洞或小行星雨！",
+          ar: "الطقس الكوني مثالي للبرمجة اليوم! 🌞 لا يُتوقع حدوث ثقوب سوداء أو أمطار نيزكية في منطقتك!",
+          ru: "Космическая погода сегодня идеальна для программирования! 🌞 В вашем районе не ожидается черных дыр или метеоритных дождей!"
+        };
+        return weatherResponses[lang];
+      }
+      
+      // Default response
+      else {
+        const randomDefault = responses.defaultResponses[lang][Math.floor(Math.random() * responses.defaultResponses[lang].length)];
+        return randomDefault;
+      }
+    }
+
+    // ============ CHAT UI FUNCTIONS ============
+    function addBotMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'bot-msg';
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      
+      const timeDiv = document.createElement('div');
+      timeDiv.className = 'msg-timestamp';
+      timeDiv.textContent = formatTime(new Date());
+      div.appendChild(timeDiv);
+      
+      aiChat.appendChild(div);
+      aiChat.scrollTop = aiChat.scrollHeight;
+      
+      // Save to conversation history
+      conversationHistory.push({type: 'bot', text: text, lang: currentDetectedLang, time: new Date()});
+    }
+
+    function addUserMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'user-msg';
+      div.textContent = text;
+      
+      const timeDiv = document.createElement('div');
+      timeDiv.className = 'msg-timestamp';
+      timeDiv.textContent = formatTime(new Date());
+      div.appendChild(timeDiv);
+      
+      aiChat.appendChild(div);
+      aiChat.scrollTop = aiChat.scrollHeight;
+    }
+
+    function formatTime(date) {
+      return date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    }
+
+    // ============ SPEECH SYNTHESIS ============
+    function speak(text, langCode) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        
+        // Language mapping for speech synthesis
+        const langMap = {
+          en: 'en-US',
+          hi: 'hi-IN',
+          es: 'es-ES',
+          zh: 'zh-CN',
+          ar: 'ar-SA',
+          ru: 'ru-RU'
+        };
+
+        utterance.lang = langMap[langCode] || 'en-US';
+        
+        // Get voices and try to find matching language
+        const voices = speechSynthesis.getVoices();
+        const matchingVoices = voices.filter(voice => voice.lang.startsWith(langCode) && voice.name.includes('female'));
+        if (matchingVoices.length > 0) {
+          utterance.voice = matchingVoices[0];
+        } else {
+          // Fallback to any voice in that language
+          const anyMatching = voices.filter(voice => voice.lang.startsWith(langCode));
+          if (anyMatching.length > 0) {
+            utterance.voice = anyMatching[0];
+          }
+        }
+
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Load voices
+    window.speechSynthesis.onvoiceschanged = () => {
+      console.log("Voices loaded - total:", speechSynthesis.getVoices().length);
+    };
+
+    // ============ EVENT LISTENERS ============
+    aiBot.addEventListener('click', () => {
+      aiPanel.style.display = 'flex';
+      setTimeout(() => {
+        aiPanel.classList.add('active');
+      }, 10);
+      
+      // Show skip button when AI is active
+      cosmicoSkip.style.display = 'block';
+      
+      // Welcome message
+      const welcomeMsg = "👋 Hello! I'm Cosmico, your personal AI assistant. I can understand any language you speak — just start typing! Ask me about Sahil, his skills, projects, or anything else!";
+      addBotMessage(welcomeMsg);
+      speak("Hello! I am Cosmico, your personal AI assistant. Ask me anything about Sahil!", 'en');
+    });
+
+    aiInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    aiSendBtn.addEventListener('click', () => {
+      sendMessage();
+    });
+
+    function sendMessage() {
+      const userMsg = aiInput.value.trim();
+      if (userMsg) {
+        addUserMessage(userMsg);
+        const reply = getResponse(userMsg);
+        addBotMessage(reply);
+        speak(reply, currentDetectedLang);
+        aiInput.value = '';
+      }
+    }
+
+    // ============ SKIP BUTTON LOGIC ============
+    cosmicoSkip.addEventListener('click', () => {
+      if (!isSkipped) {
+        // Hide AI, show main content
+        aiPanel.classList.remove('active');
+        setTimeout(() => {
+          aiPanel.style.display = 'none';
+        }, 500);
+        aiBot.style.display = 'none';
+        cosmicoSkip.textContent = "🤖 Bring Back AI";
+        mainContent.classList.add('active');
+        
+        // Show sections with animation
+        setTimeout(() => {
+          sections.forEach((sec, index) => {
+            setTimeout(() => {
+              sec.classList.add('visible');
+            }, index * 300);
+          });
+        }, 100);
+        
+        isSkipped = true;
+      } else {
+        // Show AI, hide main content
+        aiBot.style.display = 'flex';
+        cosmicoSkip.textContent = "🌀 Cosmico Skip";
+        mainContent.classList.remove('active');
+        sections.forEach(sec => sec.classList.remove('visible'));
+        isSkipped = false;
+        
+        // Auto open AI panel
+        setTimeout(() => {
+          aiBot.click();
+        }, 500);
+      }
+    });
+
+    // ============ MUSIC ============
+    musicBtn.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play().catch(e => {
+          alert("Tap anywhere to allow cosmic sound!");
+          document.body.addEventListener('click', () => bgMusic.play(), { once: true });
+        });
+        musicBtn.textContent = "⏸️ Pause Music";
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Cosmic Music";
+      }
+    });
+
+    // ============ PROGRESS BAR ============
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+
+    // ============ AUTO OPEN AI AFTER 2 SECONDS ============
+    setTimeout(() => {
+      if (!isSkipped) {
+        aiBot.click();
+      }
+    }, 2000);
+
+    // ============ OBSERVER FOR SECTIONS ============
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isSkipped) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // ============ ADD FLOATING COSMIC ELEMENTS ============
+    function createFloatingElements() {
+      for (let i = 0; i < 20; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating-element';
+        el.style.fontSize = Math.random() * 20 + 10 + 'px';
+        el.style.left = Math.random() * 100 + '%';
+        el.style.top = Math.random() * 100 + '%';
+        el.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
+        el.style.opacity = Math.random() * 0.3 + 0.1;
+        el.textContent = ['✨', '🚀', '💫', '🌟', '☄️', '🪐', '🌌', '⚡'][Math.floor(Math.random() * 8)];
+        document.body.appendChild(el);
+      }
+      
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes float {
+          0% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(180deg); }
+          100% { transform: translateY(0) rotate(360deg); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Create floating elements when page loads
+    window.addEventListener('load', createFloatingElements);
+  </script>
 </body>
 </html>
